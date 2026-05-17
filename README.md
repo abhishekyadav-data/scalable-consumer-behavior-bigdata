@@ -1,4 +1,4 @@
-# Scalable Consumer Behavior & Delinquency Analysis (0.6M+ Records) 📊
+# 📊 Scalable Consumer Behavior & Delinquency Analysis (0.6M+ Records)
 > **Status:** 🛠️ Active Development / In-Progress
 
 ## 🖼️ Executive Dashboard Preview
@@ -7,25 +7,25 @@
 ## 📌 Business Problem & Objective
 In retail lending, identifying at-risk customer segments early is crucial to safeguarding asset quality. This project focuses on analyzing a massive dataset of **600,000+ consumer records** to identify key variables driving payment delinquency, perform predictive profiling, and build an interactive monitoring system.
 
-## 🛠️ Current Tech Stack & Planned Architecture
-- **Data Wrangling & Processing (Current Phase):** Python (Pandas, NumPy) for handling high-dimensionality data and initial data cleaning.
-- **Database Querying (Current Phase):** Advanced SQL for segmenting records based on risk filters.
-- **Data Visualization (Completed Phase):** Power BI dashboard for executive storytelling, anomaly detection, and risk tracking.
-
-## 📅 Project Roadmap & Phase-wise Progress
-
-### 🟩 Phase 1: Data Ingestion & Quality Control (Completed)
-- Successfully loaded and managed **0.6 Million rows** of structural data.
-- Handled missing value imputation, text formatting anomaly resolution (single-quote cleaning), and outlier detection.
-
-### 🟩 Phase 2: Core Analysis & Interactive Visualization (Completed)
-- Mapped total fraudulent exposure worth **$3.82 Million** across 7,200 verified security breaches.
-- Isolated 'es_travel' as the most critical risk category, driving over $1.53 Million in total fraud loss.
-- Segmented demographics to discover that Customer Age Groups 4, 3, and 2 account for the highest vulnerability frequency.
-
-### 🟨 Phase 3: Risk Triggers & Automated Modeling (In-Progress)
-- Mapping correlation between High Credit Utilization (>75%) and 30-day delinquency rates.
-- Designing predictive profiling metrics to segment high Debt-to-Income (DTI) customers for automated outreach.
+To overcome the performance bottlenecks of traditional relational database transactional engines handling 0.6M+ rows, the data architecture utilizes a hybrid approach: fast file parsing via **Python (Pandas)** and modern in-memory data warehousing via **SQL (DuckDB Engine)**.
 
 ---
-*Developed as part of my Advanced Business Analytics Portfolio | Abhishek Yadav (Delhi University)*
+
+## 🛠️ Tech Stack & Architecture
+- **Data Wrangling & Processing:** Python 3 (Pandas, Matplotlib)
+- **Database Querying & Analytics Engine:** SQL (DuckDB Architecture)
+- **Data Visualization & Dashboarding:** Power BI for executive storytelling, anomaly detection, and risk tracking.
+
+---
+
+## 🚀 Technical Implementation & SQL Insights
+
+### 1. High-Performance SQL Querying
+Instead of traditional slow row-by-row transactional processing, the raw data was connected directly to an analytical SQL engine to run rapid group aggregations across the 600,000+ records in under 5 seconds.
+
+```sql
+-- Querying quantitative aggregations directly from the data warehouse environment
+SELECT risk_flag, AVG(amount) AS avg_transaction_amount
+FROM 'risk.csv'
+GROUP BY risk_flag;
+
