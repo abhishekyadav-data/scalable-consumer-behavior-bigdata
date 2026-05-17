@@ -38,7 +38,7 @@ The analytical queries revealed a massive divergence in financial exposure betwe
 
 The Python-generated visualization below demonstrates that high-risk or fraudulent flags are heavily concentrated in high-value transactions, proving that risk metrics scale drastically with the transaction magnitude.
 
-![Risk Analysis Chart](risk_analysis_chart.png)
+![Risk Analysis Chart](Screenshot_2026-05-17_155001)
 
 ---
 
